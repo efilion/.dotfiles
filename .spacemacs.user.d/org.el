@@ -1,3 +1,5 @@
+(load-env-vars "~/org/.env")
+
 (setq org-todo-keywords
       '((sequence "TODO" "NEXT" "|" "DONE" "WAITING" "CANCELED")))
 
@@ -9,3 +11,9 @@
         ("~/org/archive.org" :maxlevel . 1)))
 
 (setq org-agenda-files (list "~/org/notes.org" "~/org/gtd.org" "~/org/calendar.org"))
+
+;; Sync with Google Calendar
+(require 'org-gcal)
+(setq org-gcal-client-id (getenv "GCAL_CLIENT_ID")
+      org-gcal-client-secret (getenv "GCAL_CLIENT_SECRET")
+      org-gcal-file-alist `((,(getenv "GCAL_ID") . "~/org/calendar.org")))

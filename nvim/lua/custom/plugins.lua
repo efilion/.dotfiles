@@ -1,5 +1,10 @@
 local plugins = {
   {
+    "rmagatti/auto-session",
+    lazy = false,
+    config = true
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
